@@ -1,0 +1,20 @@
+---
+- hosts: ring
+  become: true
+
+  vars_files:
+    - vars/main.yml
+
+  pre_tasks:
+    - name: APT | Update cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 1800
+
+    - name: APT | Upgrade all packages to latest versions
+      apt:
+        upgrade: safe
+
+    - name: APT | Install a list of packages
+      apt:
+        pkg: "{{ apt_packages_list }}"

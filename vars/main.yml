@@ -1,0 +1,5 @@
+---
+# A list of packages to install
+apt_packages_list:
+  - vim
+  - jq
