@@ -1,0 +1,9 @@
+---
+- name: SYSTEM | List all available timezones
+  command: timedatectl list-timezones
+  changed_when: false
+  register: list_timezones
+
+- name: SYSTEM | Set timezone
+  command: "timedatectl set-timezone {{ sys_timezone }}"
+  when: sys_timezone in list_timezones.stdout
