@@ -5,6 +5,13 @@
   changed_when: false
   register: list_timezones
 
+- name: SYSTEM | Get current timezone
+  command: timedatectl status
+  changed_when: false
+  register: result
+
 - name: SYSTEM | Set timezone
   command: "timedatectl set-timezone {{ sys_timezone }}"
-  when: sys_timezone in list_timezones.stdout
+  when: 
+    - sys_timezone in list_timezones.stdout
+    - sys_timezone not in result.stdout
