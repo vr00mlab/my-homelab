@@ -1,6 +1,7 @@
 ---
 - name: SYSTEM | List all available timezones
   command: timedatectl list-timezones
+  no_log: true
   changed_when: false
   register: list_timezones
 
