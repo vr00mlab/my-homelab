@@ -1,0 +1,13 @@
+---
+- name: NETWORK | Deploy configuration files
+  template:
+    src: "templates/{{ item.filename }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.chmod }}"
+  with_items:
+    - { filename: hosts.j2, dest: /etc/hosts, chmod: 644 }
+    - { filename: dhcpcd.j2, dest: /etc/dhcpcd.conf, chmod: 664 }
+
+- name: NETWORK | Update hostname
+  hostname:
+    name: "{{ inventory_hostname }}"

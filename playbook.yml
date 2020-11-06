@@ -21,3 +21,5 @@
 
   tasks:
     - include_tasks: tasks/update-timezone.yml
+
+    - include_tasks: tasks/configure-networking.yml

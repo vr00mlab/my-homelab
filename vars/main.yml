@@ -6,3 +6,8 @@ apt_packages_list:
 
 # System configuration
 sys_timezone: Europe/Paris
+
+# Network configuration
+device_ip_address: "{{ ansible_host }}"
+device_ip_gateway: 192.168.1.1
+device_ip_dns: 192.168.1.1
