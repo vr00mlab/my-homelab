@@ -1,0 +1,6 @@
+---
+- name: SSH | Deploy server-side configuration file
+  template:
+    src: 'templates/sshd_config.j2'
+    dest: '/etc/ssh/sshd_config'
+    mode: '600'

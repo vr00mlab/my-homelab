@@ -11,3 +11,11 @@ sys_timezone: Europe/Paris
 device_ip_address: "{{ ansible_host }}"
 device_ip_gateway: 192.168.1.1
 device_ip_dns: 192.168.1.1
+
+# SSH configuration
+ssh_listen_to: "{{ ansible_host }}"
+ssh_server_port: 22
+ssh_enable_ipv6: false
+ssh_permit_root_login: 'no'
+ssh_enable_passwd_auth: false
+ssh_enable_pubkey_auth: true

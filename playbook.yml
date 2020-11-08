@@ -23,3 +23,5 @@
     - include_tasks: tasks/update-timezone.yml
 
     - include_tasks: tasks/configure-networking.yml
+
+    - include_tasks: tasks/configure-ssh.yml
