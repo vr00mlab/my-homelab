@@ -27,7 +27,7 @@ StrictModes yes
 SyslogFacility AUTH
 LogLevel VERBOSE
 
-## Cryptography
+## Cryptography ##
 KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
 
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
@@ -49,6 +49,7 @@ HostbasedAuthentication no
 # Enable public key authentication
 PubkeyAuthentication yes
 AuthenticationMethods publickey
+AuthorizedKeysFile ~/.ssh/authorized_keys
 {% endif %}
 
 {% if not ssh_enable_passwd_auth %}
