@@ -49,7 +49,7 @@ HostbasedAuthentication no
 # Enable public key authentication
 PubkeyAuthentication yes
 AuthenticationMethods publickey
-AuthorizedKeysFile ~/.ssh/authorized_keys
+AuthorizedKeysFile %h/.ssh/authorized_keys
 {% endif %}
 
 {% if not ssh_enable_passwd_auth %}
@@ -58,3 +58,19 @@ PasswordAuthentication no
 PermitEmptyPasswords no
 ChallengeResponseAuthentication no
 {% endif %}
+
+## Network ##
+# Do not use this option since it is spoofable.
+TCPKeepAlive no
+
+ClientAliveInterval 60
+ClientAliveCountMax 3
+
+# Disable tunneling
+PermitTunnel no
+
+# Disable forwarding tcp connections
+AllowTcpForwarding no
+
+# Disable X11 forwarding
+X11Forwarding no
